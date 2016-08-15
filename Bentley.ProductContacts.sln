@@ -11,6 +11,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bentley.ProductContacts.Win
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bentley.ProductContacts", "Bentley.ProductContacts\Bentley.ProductContacts\Bentley.ProductContacts.csproj", "{4D571AC0-A135-4FDF-AF07-C74BE0396646}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{22645B16-3F22-4D6F-B960-4211D0C26AAC}"
+	ProjectSection(SolutionItems) = preProject
+		Copy of Master Table_sql.xlsx = Copy of Master Table_sql.xlsx
+		productcontacts.db = productcontacts.db
+		setupDB.sql = setupDB.sql
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Ad-Hoc|Any CPU = Ad-Hoc|Any CPU
