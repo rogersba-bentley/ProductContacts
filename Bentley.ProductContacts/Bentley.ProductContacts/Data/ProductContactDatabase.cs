@@ -3,6 +3,7 @@ using Xamarin.Forms;
 using System.Linq;
 using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace Bentley.ProductContacts
     {
@@ -40,5 +41,21 @@ namespace Bentley.ProductContacts
                 }
             }
 
+        public IEnumerable<ProductLine> GetFavorites ()
+            {
+            if ( !Application.Current.Properties.Keys.Contains ("1") )
+                Application.Current.Properties.Add ("1", DateTime.Now);
+
+            string productIds = string.Join (",", Application.Current.Properties.Keys);
+            if ( productIds.Length > 0 )
+                {
+                lock ( s_locker )
+                    {
+                    return m_connection.Query<ProductLine> ("SELECT ProductLineId, Name FROM [ProductLine] WHERE ProductLineId IN (?)", productIds);
+                    }
+                }
+            else
+                return new List<ProductLine> ();
+            }
         }
     }
