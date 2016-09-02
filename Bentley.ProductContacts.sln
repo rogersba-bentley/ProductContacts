@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bentley.ProductContacts", "
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{22645B16-3F22-4D6F-B960-4211D0C26AAC}"
 	ProjectSection(SolutionItems) = preProject
-		Copy of Master Table_sql.xlsx = Copy of Master Table_sql.xlsx
+		Final Table.xlsm = Final Table.xlsm
 		productcontacts.db = productcontacts.db
 		setupDB.sql = setupDB.sql
 	EndProjectSection

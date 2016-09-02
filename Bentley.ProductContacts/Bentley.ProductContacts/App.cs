@@ -13,7 +13,7 @@ namespace Bentley.ProductContacts
             {
             // The root page of your application
             var db = new ProductContactDatabase ();
-            MainPage = new ProductListPage (db);
+            MainPage = new NavigationPage (new ProductListPage (db));
             }
 
         protected override void OnStart ()

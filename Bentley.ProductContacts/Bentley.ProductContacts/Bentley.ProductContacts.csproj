@@ -40,6 +40,7 @@
     <Compile Include="Data\ProductContactDatabase.cs" />
     <Compile Include="Models\ProductContact.cs" />
     <Compile Include="Models\ProductLine.cs" />
+    <Compile Include="Pages\ContactsPage.cs" />
     <Compile Include="Pages\ProductList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

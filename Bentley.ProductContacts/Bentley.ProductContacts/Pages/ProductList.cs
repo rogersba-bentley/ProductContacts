@@ -25,17 +25,8 @@ namespace Bentley.ProductContacts
             m_productList.ItemsSource = products;
             m_productList.ItemTemplate = new DataTemplate (typeof (TextCell));
             m_productList.ItemTemplate.SetBinding (TextCell.TextProperty, "Name");
-
-
+            m_productList.ItemSelected += productList_ItemSelected;
             var favorites = m_database.GetFavorites ();
-            m_favoritesList = new ListView ();
-            m_favoritesList.Header = "Favorites";
-            m_favoritesList.ItemsSource = favorites;
-            m_favoritesList.ItemTemplate = new DataTemplate (typeof (TextCell));
-            m_favoritesList.ItemTemplate.SetBinding (TextCell.TextProperty, "Name");
-            m_favoritesList.HasUnevenRows = true;
-            m_favoritesList.MinimumHeightRequest = 1;
-            m_favoritesList.VerticalOptions = LayoutOptions.FillAndExpand;
 
             var grid = new Grid ();
             grid.ColumnDefinitions.Add (new ColumnDefinition { Width = new GridLength (15, GridUnitType.Absolute) });
@@ -70,6 +61,25 @@ namespace Bentley.ProductContacts
                 };
 
             Content = stack;
+            }
+
+        private void productList_ItemSelected (object sender, SelectedItemChangedEventArgs e)
+            {
+            if ( e.SelectedItem == null )
+                {
+                return; //ItemSelected is called on deselection, which results in SelectedItem being set to null
+                }
+
+            var productLine = e.SelectedItem as ProductLine;
+            DisplayAlert ("Item Selected", productLine.Name, "Ok");
+            if ( productLine == null )
+                {
+                return;
+                }
+
+            var contactsView = new ContactsPage ();
+            contactsView.BindingContext = productLine;
+            Navigation.PushAsync (contactsView);
             }
 
         private void FilterProducts (string search)
